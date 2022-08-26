@@ -1,54 +1,29 @@
 
-<details>
-<summary>🆙点击查看更新说明</summary>
-<br>
-
-2022年7月28号，编译时候在diy-part.sh文件里面可以对OpenClash代码进行分支选择，可选master或者dev分支，选错或者不选就默认使用master分支
-
-
-2022年7月6号16点，去除重复插件
-
-
-2022年4月27号修改
-  
-1、把 build/openwrt_amlogic/diy-part.sh 里面的晶晨打包组合的路径修改过了，请及时更新
-
-2、把编译的时候不想要的固件或者文件的删除方法修改过了，注意diy-part.sh的代码路径也修改过了，要及时更新，新删除方法请到《[`删除不想要的固件或者文件`](https://github.com/danshui-git/shuoming/blob/master/%E5%9B%BA%E4%BB%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E6%95%B4%E7%90%86.md)》查看说明
-
-<br />
-</details>
-
-
----
-<details>
-<summary>🆘点击查看编译教程</summary>
-<br>
-
-## [`github编译教程`](https://github.com/danshui-git/shuoming#readme)
-
----
-#### [`本地Ubuntu一键编译`](https://github.com/281677160/bendi)
-#### [`本地一键提取.config然后在云编译脚本使用`](https://github.com/danshui-git/shuoming/blob/master/yijianconfig.md)
-
-<br />
-</details>
-
-
----
- ### 鸣谢！
- 感谢以下各位大佬（排名无分先后）<br />
+- 默认IP地址：192.168.4.1
+- 账户：root   密码：空
  
- [`coolsnowwolf`](https://github.com/coolsnowwolf/lede/tree/master)
- [`Lienol`](https://github.com/Lienol/openwrt/tree/22.03)
- [`immortalwrt`](https://github.com/immortalwrt/immortalwrt)
- [`P3TERX`](https://github.com/P3TERX/Actions-OpenWrt)
- [`Hyy2001X`](https://github.com/Hyy2001X/AutoBuild-Actions)
- [`dhxh`](https://github.com/dhxh/Openwrt-Build)
- [`ophub`](https://github.com/ophub/amlogic-s9xxx-openwrt)
- [`nicholas-opensource`](https://github.com/nicholas-opensource/OpenWrt-Autobuild)
- [`hx210`](#/README.md)
- [`hyird`](#/README.md)
- [`World Peace`](#/README.md)
- [`klever1988`](https://github.com/klever1988/cachewrtbuild)
- [`actions`](https://github.com/actions/upload-artifact)
- [`svenstaro`](https://github.com/svenstaro/upload-release-action)
+ 
+- 首先需要打开 Openwrt 主页,点击系统-TTYD 命令窗,或者使用putty和openwrt后台luci插件定时更新 
+- 输入`openwrt`即可进入固件升级菜单                            
+- 输入`tools`即可打开工具箱
+- 输入`qinglong`即可全自动安装青龙 
+- ================================================================
+
+- 自行云编译固件姿势
+- 开始 ctrl+c 
+- 进ssh选择插件 
+``` bash
+cd openwrt && make menuconfig
+```
+- 结束ctrl+d
+
+- 云编译需要 [在此](https://github.com/settings/tokens) 创建个token,勾选：repo, workflow，保存所得的key
+- 然后在此仓库Settings->Secrets中添加个名字为```REPO_TOKEN```的Secret,填入token获得的key
+
+- TG通知Settings->Secrets中添加个名字为```TELEGRAM_BOT_TOKEN```和```TELEGRAM_CHAT_ID```
+
+## 自动更新固件
+![img.png](img/img.png)
+![img1.png](img/img1.png)
+![img2.png](img/img2.png)
+![img3.png](img/img3.png)
