@@ -15,7 +15,7 @@
 #
 #
 
-name: 触发R2S启动编译
+name: 触发compile启动编译
 on:
   workflow_dispatch:
     inputs:
@@ -52,7 +52,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     name: 启动${{matrix.target}}编译
@@ -71,7 +71,7 @@ jobs:
     - name: 读取脚本设置
       run: |
         export matrixtarget="${{ matrix.target }}"
-        git clone --depth 1 -b main https://github.com/czw1259/common-1 ${GITHUB_WORKSPACE}/build/common
+        git clone --depth 1 -b main https://github.com/281677160/common ${GITHUB_WORKSPACE}/build/common
         mv -f ${GITHUB_WORKSPACE}/build/common/*.sh ${GITHUB_WORKSPACE}/build/${{matrix.target}}/
         chmod -R +x ${GITHUB_WORKSPACE}/build
         source $GITHUB_WORKSPACE/build/${{matrix.target}}/common.sh && Diy_repo_url
